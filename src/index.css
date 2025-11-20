@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 99%;
     --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
@@ -17,40 +17,41 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    /* Military green primary */
-    --primary: 95 60% 25%;
+    /* Colombian Navy Blue */
+    --primary: 214 100% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Navy blue secondary */
-    --secondary: 210 70% 20%;
+    /* Colombian Red */
+    --secondary: 353 85% 44%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Graphite muted */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    /* Light muted */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Gold accent */
-    --accent: 45 80% 55%;
-    --accent-foreground: 0 0% 10%;
+    /* Colombian Yellow accent */
+    --accent: 48 97% 54%;
+    --accent-foreground: 214 100% 26%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 92%;
-    --ring: 95 60% 25%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 214 100% 26%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Military gradient */
-    --gradient-military: linear-gradient(135deg, hsl(95 60% 25%), hsl(210 70% 20%));
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 10% / 0.9), hsl(95 60% 25% / 0.95));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 97%));
+    /* Colombian gradients */
+    --gradient-colombia: linear-gradient(180deg, hsl(48 97% 54%), hsl(214 100% 26%), hsl(353 85% 44%));
+    --gradient-navy: linear-gradient(135deg, hsl(214 100% 26%), hsl(214 100% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 100% 26% / 0.95), hsl(214 100% 20% / 0.98));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
     
     /* Shadows */
-    --shadow-military: 0 10px 40px -10px hsl(95 60% 25% / 0.3);
-    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.15);
-    --shadow-glow: 0 0 30px hsl(45 80% 55% / 0.2);
+    --shadow-elegant: 0 4px 24px -4px hsl(214 100% 26% / 0.12);
+    --shadow-card: 0 2px 12px -2px hsl(0 0% 0% / 0.08);
+    --shadow-accent: 0 0 40px hsl(48 97% 54% / 0.25);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,24 +67,24 @@ All colors MUST be HSL.
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 95 60% 35%;
+    --primary: 214 100% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 60% 30%;
+    --secondary: 353 85% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 45 80% 60%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 48 97% 60%;
+    --accent-foreground: 214 100% 26%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 95 60% 35%;
+    --input: 0 0% 18%;
+    --ring: 214 100% 35%;
   }
 }
 

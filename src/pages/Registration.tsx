@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, Upload, UserCircle, Shield, Calendar, Mail, Hash, Building } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import militaryPattern from "@/assets/military-pattern.jpg";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -32,34 +31,25 @@ const Registration = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen py-8 px-4"
-      style={{
-        backgroundImage: `url(${militaryPattern})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-background/95" />
-      
-      <div className="container max-w-3xl mx-auto relative z-10">
+    <div className="min-h-screen bg-muted/20 py-8 px-4">
+      <div className="container max-w-3xl mx-auto">
         <Button 
           variant="ghost" 
           onClick={() => navigate("/")}
-          className="mb-6 text-muted-foreground hover:text-foreground"
+          className="mb-6 text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Volver al Inicio
         </Button>
 
-        <Card className="shadow-military border-accent/20">
-          <CardHeader className="text-center pb-8">
-            <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <Shield className="h-8 w-8 text-primary" />
+        <Card className="shadow-elegant border-border bg-card">
+          <CardHeader className="text-center pb-8 border-b">
+            <div className="mx-auto w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+              <Shield className="h-7 w-7 text-primary" />
             </div>
-            <CardTitle className="text-3xl">Registro de Personal Militar</CardTitle>
-            <CardDescription className="text-base">
-              Complete todos los campos para generar su identificación digital oficial
+            <CardTitle className="text-2xl font-bold text-foreground">Registro de Personal Naval</CardTitle>
+            <CardDescription className="text-sm text-muted-foreground">
+              Complete los campos para generar su identificación digital
             </CardDescription>
           </CardHeader>
 
@@ -71,13 +61,13 @@ const Registration = () => {
                   <UserCircle className="h-4 w-4" />
                   Fotografía Oficial
                 </Label>
-                <div className="border-2 border-dashed border-input rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer">
-                  <Upload className="h-12 w-12 mx-auto mb-3 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground">
-                    Haga clic o arrastre una fotografía tipo carnet
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary transition-colors cursor-pointer bg-muted/30">
+                  <Upload className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
+                  <p className="text-sm text-foreground font-medium">
+                    Cargar fotografía tipo carnet
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Formato: JPG, PNG (máx. 5MB)
+                    JPG, PNG (máx. 5MB)
                   </p>
                 </div>
               </div>
@@ -191,22 +181,14 @@ const Registration = () => {
                 />
               </div>
 
-              <div className="pt-6 flex gap-4">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="flex-1"
-                  onClick={() => navigate("/")}
-                >
-                  Cancelar
-                </Button>
-                <Button
-                  type="submit"
-                  className="flex-1 bg-primary hover:bg-primary/90 shadow-military"
-                >
-                  Generar Identificación
-                </Button>
-              </div>
+              <Button 
+                type="submit" 
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 mt-6"
+              >
+                <Shield className="mr-2 h-5 w-5" />
+                Generar Identificación Digital
+              </Button>
             </form>
           </CardContent>
         </Card>

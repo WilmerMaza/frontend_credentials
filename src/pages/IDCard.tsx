@@ -1,72 +1,51 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Download, ArrowLeft, Share2 } from "lucide-react";
+import { Download, ArrowLeft, Share2, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import militaryEmblem from "@/assets/military-emblem.png";
 import officerPhoto from "@/assets/officer-photo.jpg";
-import militaryPattern from "@/assets/military-pattern.jpg";
 
 const IDCard = () => {
   const navigate = useNavigate();
 
   return (
-    <div 
-      className="min-h-screen py-8 px-4"
-      style={{
-        backgroundImage: `url(${militaryPattern})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-background/95" />
-      
-      <div className="container max-w-4xl mx-auto relative z-10">
+    <div className="min-h-screen bg-muted/20 py-8 px-4">
+      <div className="container max-w-4xl mx-auto">
         <Button 
           variant="ghost" 
           onClick={() => navigate("/registro")}
-          className="mb-6 text-muted-foreground hover:text-foreground"
+          className="mb-6 text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Volver
         </Button>
 
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">Identificación Digital Generada</h1>
-          <p className="text-muted-foreground">
-            Su credencial militar digital ha sido creada exitosamente
+          <h1 className="text-2xl font-bold text-foreground mb-2">Identificación Digital Generada</h1>
+          <p className="text-muted-foreground text-sm">
+            Su credencial naval digital ha sido creada exitosamente
           </p>
         </div>
 
         {/* Digital ID Card */}
-        <div className="mb-8 perspective-1000">
+        <div className="mb-8">
           <Card 
-            className="relative overflow-hidden shadow-military border-2 border-accent/30"
-            style={{
-              background: `linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%)`,
-            }}
+            className="relative overflow-hidden shadow-elegant border border-border bg-gradient-navy"
           >
-            {/* Background Pattern */}
-            <div 
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `url(${militaryPattern})`,
-                backgroundSize: 'cover',
-              }}
-            />
-
             <div className="relative p-8">
               {/* Header */}
-              <div className="flex items-center justify-between mb-6 border-b border-accent/30 pb-4">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-primary-foreground/20">
                 <div className="flex items-center gap-3">
-                  <img src={militaryEmblem} alt="Escudo" className="h-14 w-14" />
+                  <div className="h-12 w-12 bg-accent rounded-lg flex items-center justify-center">
+                    <Shield className="h-7 w-7 text-accent-foreground" />
+                  </div>
                   <div>
-                    <h2 className="text-xl font-bold text-primary-foreground">FUERZAS ARMADAS</h2>
-                    <p className="text-sm text-accent">Identificación Oficial</p>
+                    <h2 className="text-lg font-bold text-primary-foreground">ARMADA DE COLOMBIA</h2>
+                    <p className="text-xs text-accent">Identificación Oficial</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-xs text-primary-foreground/80">ID: MIL-2025-001234</p>
-                  <p className="text-xs text-accent font-mono">VERIFICADO</p>
+                  <p className="text-xs text-primary-foreground/80">ID: NAV-2025-001234</p>
+                  <p className="text-xs text-accent font-semibold">VERIFICADO</p>
                 </div>
               </div>
 

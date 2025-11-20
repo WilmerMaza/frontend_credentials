@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Camera, CheckCircle2, XCircle, Shield, Scan } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import militaryPattern from "@/assets/military-pattern.jpg";
 import officerPhoto from "@/assets/officer-photo.jpg";
-import militaryEmblem from "@/assets/military-emblem.png";
 
 const Verification = () => {
   const navigate = useNavigate();
@@ -22,53 +20,44 @@ const Verification = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen py-8 px-4"
-      style={{
-        backgroundImage: `url(${militaryPattern})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-background/95" />
-      
-      <div className="container max-w-4xl mx-auto relative z-10">
+    <div className="min-h-screen bg-muted/20 py-8 px-4">
+      <div className="container max-w-4xl mx-auto">
         <Button 
           variant="ghost" 
           onClick={() => navigate("/")}
-          className="mb-6 text-muted-foreground hover:text-foreground"
+          className="mb-6 text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Volver al Inicio
         </Button>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Scanner Section */}
-          <Card className="shadow-military border-accent/20">
-            <CardHeader className="text-center">
-              <div className="mx-auto w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                <Scan className="h-8 w-8 text-accent" />
+          <Card className="shadow-elegant border-border">
+            <CardHeader className="text-center border-b">
+              <div className="mx-auto w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-4">
+                <Scan className="h-7 w-7 text-accent" />
               </div>
-              <CardTitle className="text-2xl">Verificar Identificación</CardTitle>
-              <CardDescription>
-                Escanee el código QR de la credencial militar
+              <CardTitle className="text-xl font-bold">Verificar Identificación</CardTitle>
+              <CardDescription className="text-sm">
+                Escanee el código QR de la credencial naval
               </CardDescription>
             </CardHeader>
 
-            <CardContent>
+            <CardContent className="pt-6">
               {/* QR Scanner */}
-              <div className="aspect-square bg-muted rounded-lg mb-6 flex items-center justify-center border-4 border-dashed border-border relative overflow-hidden">
+              <div className="aspect-square bg-muted/50 rounded-xl mb-6 flex items-center justify-center border-2 border-dashed border-border relative overflow-hidden">
                 {isScanning ? (
                   <div className="absolute inset-0 bg-primary/10 animate-pulse flex items-center justify-center">
                     <div className="text-center">
-                      <Camera className="h-16 w-16 text-primary mx-auto mb-3 animate-bounce" />
-                      <p className="font-semibold">Escaneando...</p>
+                      <Camera className="h-14 w-14 text-primary mx-auto mb-3 animate-bounce" />
+                      <p className="font-semibold text-foreground">Escaneando...</p>
                     </div>
                   </div>
                 ) : (
                   <div className="text-center p-8">
-                    <Camera className="h-20 w-20 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground mb-2">
+                    <Camera className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <p className="text-sm text-foreground mb-2">
                       Coloque el código QR frente a la cámara
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -155,8 +144,10 @@ const Verification = () => {
                         />
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <img src={militaryEmblem} alt="Escudo" className="h-8 w-8" />
-                            <h4 className="font-bold text-lg">Juan Carlos Pérez Gómez</h4>
+                            <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
+                              <Shield className="h-5 w-5 text-primary-foreground" />
+                            </div>
+                            <h4 className="font-bold text-lg text-foreground">Juan Carlos Pérez Gómez</h4>
                           </div>
                           <div className="space-y-1 text-sm">
                             <p className="flex items-center gap-2">
