@@ -53,14 +53,15 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-military': 'var(--gradient-military)',
+        'gradient-colombia': 'var(--gradient-colombia)',
+        'gradient-navy': 'var(--gradient-navy)',
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
       },
       boxShadow: {
-        'military': 'var(--shadow-military)',
+        'elegant': 'var(--shadow-elegant)',
         'card-elevated': 'var(--shadow-card)',
-        'glow': 'var(--shadow-glow)',
+        'accent': 'var(--shadow-accent)',
       },
       transitionProperty: {
         'smooth': 'var(--transition-smooth)',
