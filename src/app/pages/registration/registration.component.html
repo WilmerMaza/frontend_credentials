@@ -1,0 +1,156 @@
+<div 
+  class="min-h-screen py-8 px-4"
+  [style.background-image]="'url(' + militaryPattern + ')'"
+  [style.background-size]="'cover'"
+  [style.background-position]="'center'"
+>
+  <div class="absolute inset-0 bg-background/95"></div>
+  
+  <div class="container max-w-3xl mx-auto relative z-10">
+    <button 
+      mat-button
+      (click)="navigateTo('/')"
+      class="mb-6 text-muted-foreground hover:text-foreground"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Volver al Inicio
+    </button>
+
+    <mat-card class="!shadow-military !border !border-accent/20 bg-card">
+      <mat-card-header class="text-center pb-8">
+        <div class="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+          <mat-icon class="!text-4xl !text-primary">security</mat-icon>
+        </div>
+        <mat-card-title class="!text-3xl !font-bold !text-foreground">Registro de Personal Militar</mat-card-title>
+        <mat-card-subtitle class="!text-base !text-muted-foreground mt-2">
+          Complete todos los campos para generar su identificación digital oficial
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="!p-6">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit($event)" class="space-y-6">
+          <!-- Photo Upload -->
+          <div class="space-y-2 mb-6">
+            <label class="flex items-center gap-2 !text-foreground !font-medium">
+              <mat-icon class="!text-lg">account_circle</mat-icon>
+              Fotografía Oficial
+            </label>
+            <div class="!border-2 !border-dashed !border-input rounded-lg p-8 text-center hover:!border-primary transition-colors cursor-pointer bg-muted/30">
+              <mat-icon class="!text-6xl !text-muted-foreground mb-3 block">cloud_upload</mat-icon>
+              <p class="!text-sm !text-muted-foreground">
+                Haga clic o arrastre una fotografía tipo carnet
+              </p>
+              <p class="!text-xs !text-muted-foreground mt-1">
+                Formato: JPG, PNG (máx. 5MB)
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <!-- Full Name -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Nombre Completo</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">account_circle</mat-icon>
+              <input matInput formControlName="fullName" placeholder="Ej: Juan Carlos Pérez Gómez" required class="!text-foreground">
+              <mat-error *ngIf="registrationForm.get('fullName')?.hasError('required')">
+                El nombre es requerido
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Rank -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Rango Militar</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">military_tech</mat-icon>
+              <mat-select formControlName="rank" required class="!text-foreground">
+                <mat-option *ngFor="let rank of ranks" [value]="rank.value">
+                  {{ rank.label }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="registrationForm.get('rank')?.hasError('required')">
+                El rango es requerido
+              </mat-error>
+            </mat-form-field>
+
+            <!-- ID Number -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Número de Identificación</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">tag</mat-icon>
+              <input matInput formControlName="idNumber" placeholder="Ej: MIL-2025-001234" required class="!text-foreground">
+              <mat-error *ngIf="registrationForm.get('idNumber')?.hasError('required')">
+                El número de identificación es requerido
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Unit -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Unidad Asignada</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">location_city</mat-icon>
+              <input matInput formControlName="unit" placeholder="Ej: Batallón de Infantería 7" required class="!text-foreground">
+              <mat-error *ngIf="registrationForm.get('unit')?.hasError('required')">
+                La unidad es requerida
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Birth Date -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Fecha de Nacimiento</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">calendar_today</mat-icon>
+              <input matInput [matDatepicker]="birthPicker" formControlName="birthDate" required class="!text-foreground">
+              <mat-datepicker-toggle matSuffix [for]="birthPicker" class="!text-primary"></mat-datepicker-toggle>
+              <mat-datepicker #birthPicker></mat-datepicker>
+              <mat-error *ngIf="registrationForm.get('birthDate')?.hasError('required')">
+                La fecha de nacimiento es requerida
+              </mat-error>
+            </mat-form-field>
+
+            <!-- Admission Date -->
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label class="!text-foreground">Fecha de Ingreso</mat-label>
+              <mat-icon matPrefix class="!text-muted-foreground mr-2">calendar_today</mat-icon>
+              <input matInput [matDatepicker]="admissionPicker" formControlName="admissionDate" required class="!text-foreground">
+              <mat-datepicker-toggle matSuffix [for]="admissionPicker" class="!text-primary"></mat-datepicker-toggle>
+              <mat-datepicker #admissionPicker></mat-datepicker>
+              <mat-error *ngIf="registrationForm.get('admissionDate')?.hasError('required')">
+                La fecha de ingreso es requerida
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!-- Email -->
+          <mat-form-field appearance="outline" class="w-full mb-6">
+            <mat-label class="!text-foreground">Correo Institucional</mat-label>
+            <mat-icon matPrefix class="!text-muted-foreground mr-2">email</mat-icon>
+            <input matInput type="email" formControlName="email" placeholder="nombre.apellido&#64;fuerzasarmadas.mil" required class="!text-foreground">
+            <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+              El correo es requerido
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
+              Ingrese un correo válido
+            </mat-error>
+          </mat-form-field>
+
+          <div class="pt-6 flex gap-4">
+            <button
+              type="button"
+              mat-stroked-button
+              class="flex-1"
+              (click)="navigateTo('/')"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              class="flex-1 shadow-military"
+              [disabled]="registrationForm.invalid"
+            >
+              Generar Identificación
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

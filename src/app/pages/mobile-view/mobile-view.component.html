@@ -1,0 +1,188 @@
+<div class="min-h-screen bg-muted py-8 px-4">
+  <div class="container max-w-6xl mx-auto">
+    <button 
+      mat-button
+      (click)="navigateTo('/id-card')"
+      class="mb-6"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Volver
+    </button>
+
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold mb-2">Vista Móvil</h1>
+      <p class="text-muted-foreground">
+        Previsualización de la aplicación móvil
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Mobile Device Frame - Home Screen -->
+      <div class="mx-auto">
+        <div class="relative w-[320px] h-[640px] bg-foreground rounded-[3rem] p-4 shadow-2xl">
+          <!-- Phone notch -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-foreground rounded-b-2xl z-20"></div>
+          
+          <!-- Screen -->
+          <div class="h-full bg-background rounded-[2.5rem] overflow-hidden relative">
+            <!-- Status Bar -->
+            <div class="bg-primary text-primary-foreground px-6 py-3 flex items-center justify-between text-xs">
+              <span>9:41</span>
+              <span class="font-semibold">ID Militar</span>
+              <span>100%</span>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4 space-y-4">
+              <!-- Header -->
+              <div class="flex items-center gap-3 pb-3 border-b">
+                <img [src]="militaryEmblem" alt="Escudo" class="h-10 w-10" />
+                <div>
+                  <h3 class="font-bold text-sm">Juan Carlos Pérez</h3>
+                  <p class="text-xs text-muted-foreground">Capitán - MIL-2025-001234</p>
+                </div>
+              </div>
+
+              <!-- QR Code Card -->
+              <mat-card class="bg-gradient-military p-6">
+                <div class="text-center space-y-4">
+                  <div class="bg-white p-4 rounded-lg mx-auto inline-block shadow-glow">
+                    <div class="w-40 h-40 bg-gradient-to-br from-foreground to-muted flex items-center justify-center">
+                      <mat-icon class="text-8xl text-background">qr_code</mat-icon>
+                    </div>
+                  </div>
+                  <div class="text-primary-foreground">
+                    <p class="text-xs font-semibold mb-1">TOQUE PARA AMPLIAR</p>
+                    <p class="text-xs opacity-80">Código de verificación activo</p>
+                  </div>
+                </div>
+              </mat-card>
+
+              <!-- Quick Actions -->
+              <div class="space-y-2">
+                <button class="w-full flex items-center justify-between p-3 bg-card hover:bg-accent/10 rounded-lg transition-colors">
+                  <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <mat-icon class="text-primary">security</mat-icon>
+                    </div>
+                    <div class="text-left">
+                      <p class="text-sm font-semibold">Ver Credencial Completa</p>
+                      <p class="text-xs text-muted-foreground">Información detallada</p>
+                    </div>
+                  </div>
+                  <mat-icon class="text-muted-foreground">chevron_right</mat-icon>
+                </button>
+
+                <button class="w-full flex items-center justify-between p-3 bg-card hover:bg-accent/10 rounded-lg transition-colors">
+                  <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+                      <mat-icon class="text-accent">qr_code_scanner</mat-icon>
+                    </div>
+                    <div class="text-left">
+                      <p class="text-sm font-semibold">Escanear QR</p>
+                      <p class="text-xs text-muted-foreground">Verificar otra credencial</p>
+                    </div>
+                  </div>
+                  <mat-icon class="text-muted-foreground">chevron_right</mat-icon>
+                </button>
+              </div>
+
+              <!-- Status Badge -->
+              <div class="bg-accent/10 border border-accent/30 rounded-lg p-3 text-center">
+                <p class="text-xs text-muted-foreground mb-1">Estado del Servicio</p>
+                <p class="text-sm font-bold text-accent">✓ ACTIVO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Device Frame - ID Card Detail -->
+      <div class="mx-auto">
+        <div class="relative w-[320px] h-[640px] bg-foreground rounded-[3rem] p-4 shadow-2xl">
+          <!-- Phone notch -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-foreground rounded-b-2xl z-20"></div>
+          
+          <!-- Screen -->
+          <div class="h-full bg-background rounded-[2.5rem] overflow-hidden relative">
+            <!-- Header with back button -->
+            <div class="bg-primary text-primary-foreground px-4 py-3 flex items-center justify-between">
+              <button mat-icon-button class="text-primary-foreground">
+                <mat-icon>arrow_back</mat-icon>
+              </button>
+              <span class="font-semibold text-sm">Credencial Digital</span>
+              <div class="w-8"></div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="overflow-y-auto h-[calc(100%-48px)] p-4 space-y-4">
+              <!-- Photo Section -->
+              <div class="text-center">
+                <div class="relative inline-block">
+                  <img 
+                    [src]="officerPhoto" 
+                    alt="Oficial" 
+                    class="w-32 h-40 object-cover rounded-lg border-4 border-primary/30 shadow-lg"
+                  />
+                  <div class="absolute -bottom-2 right-0 bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-bold shadow-glow">
+                    ACTIVO
+                  </div>
+                </div>
+              </div>
+
+              <!-- Name and Rank -->
+              <div class="text-center pb-4 border-b">
+                <h2 class="text-lg font-bold mb-1">Juan Carlos Pérez Gómez</h2>
+                <p class="text-sm text-primary font-semibold">Capitán</p>
+                <p class="text-xs text-muted-foreground font-mono mt-1">MIL-2025-001234</p>
+              </div>
+
+              <!-- Info Cards -->
+              <mat-card class="p-3 bg-gradient-card">
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <p class="text-muted-foreground mb-1">Unidad</p>
+                    <p class="font-semibold">Batallón Infantería 7</p>
+                  </div>
+                  <div>
+                    <p class="text-muted-foreground mb-1">Ingreso</p>
+                    <p class="font-semibold">10/01/2012</p>
+                  </div>
+                  <div>
+                    <p class="text-muted-foreground mb-1">Nacimiento</p>
+                    <p class="font-semibold">15/03/1990</p>
+                  </div>
+                  <div>
+                    <p class="text-muted-foreground mb-1">Servicio</p>
+                    <p class="font-semibold text-primary">13 años</p>
+                  </div>
+                </div>
+              </mat-card>
+
+              <!-- Contact -->
+              <mat-card class="p-3 bg-gradient-card">
+                <p class="text-xs text-muted-foreground mb-1">Email Institucional</p>
+                <p class="text-xs font-semibold">juan.perez&#64;fuerzasarmadas.mil</p>
+              </mat-card>
+
+              <!-- Compact QR -->
+              <div class="bg-card p-3 rounded-lg border">
+                <p class="text-xs text-center text-muted-foreground mb-2">Código de Verificación</p>
+                <div class="bg-white p-2 rounded mx-auto w-24 h-24 flex items-center justify-center">
+                  <mat-icon class="text-5xl">qr_code</mat-icon>
+                </div>
+              </div>
+
+              <!-- Validity -->
+              <div class="text-center text-xs text-muted-foreground pb-4">
+                <p>Válido hasta: 20/11/2030</p>
+                <p class="mt-1 text-accent font-semibold">✓ Documento Verificado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
