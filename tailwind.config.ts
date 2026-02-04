@@ -2,7 +2,11 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./src/**/*.{html,ts}",
+    "./src/app/**/*.{html,ts,css}",
+    "./src/app/pages/**/*.{html,ts,css}"
+  ],
   prefix: "",
   theme: {
     container: {
@@ -91,5 +95,12 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: (() => {
+    try {
+      return [require("tailwindcss-animate")];
+    } catch (e) {
+      console.warn("tailwindcss-animate not found, animations will be limited");
+      return [];
+    }
+  })(),
 } satisfies Config;
