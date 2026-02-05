@@ -331,3 +331,6 @@ mat-icon {
   background-color: hsla(var(--card), 0.9) !important;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

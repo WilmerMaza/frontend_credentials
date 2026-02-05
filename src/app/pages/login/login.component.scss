@@ -1,0 +1,177 @@
+.page {
+  min-height: 100vh;
+  background: #eef0f3;
+}
+
+.topbar {
+  background: #0c2e57;
+  color: #fff;
+  height: 140px;
+  padding: 0;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+
+  .topbar__inner {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.brand {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  align-items: center;
+
+  .brand__logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 999px;
+    padding: 8px;
+  }
+
+  .brand__text {
+    line-height: 1.15;
+
+    .brand__title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+    .brand__subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      opacity: 0.95;
+      text-transform: uppercase;
+    }
+    .brand__motto {
+      margin-top: 10px;
+      font-size: 22px;
+      font-style: italic;
+      font-family: "Georgia", serif;
+      opacity: 0.95;
+    }
+  }
+}
+
+.content {
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  padding: 36px 0 40px;
+  display: grid;
+  justify-items: center;
+}
+
+.login-card {
+  width: min(620px, 100%);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.login-title {
+  margin: 6px 0 6px;
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+  color: #0b1b33;
+}
+
+.login-subtitle {
+  margin: 0 0 22px;
+  text-align: center;
+  color: #7c8797;
+  font-size: 16px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.full {
+  width: 100%;
+}
+
+.password-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 -6px;
+  font-weight: 600;
+  color: #0b1b33;
+
+  .password-label__icon {
+    color: #0b1b33;
+    opacity: 0.9;
+  }
+}
+
+.forgot {
+  cursor: pointer;
+  color: #1d2b3a;
+  text-decoration: none;
+  width: fit-content;
+  margin: 2px 0 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: #1d2b3a;
+
+  a {
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.spacer {
+  height: 40vh; // para dar “aire” como en el pantallazo
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    height: auto;
+    padding: 16px 0;
+  }
+  .brand {
+    grid-template-columns: 72px 1fr;
+    .brand__logo {
+      width: 72px;
+      height: 72px;
+    }
+    .brand__text .brand__title {
+      font-size: 16px;
+    }
+    .brand__text .brand__subtitle {
+      font-size: 14px;
+    }
+    .brand__text .brand__motto {
+      font-size: 16px;
+      margin-top: 6px;
+    }
+  }
+  .login-title {
+    font-size: 28px;
+  }
+}
