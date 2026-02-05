@@ -7,6 +7,7 @@ import { PDFPreviewComponent } from './pages/pdf-preview/pdf-preview.component';
 import { VerificationComponent } from './pages/verification/verification.component';
 import { MobileViewComponent } from './pages/mobile-view/mobile-view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'pdf-preview', component: PDFPreviewComponent },
   { path: 'verificar', component: VerificationComponent },
   { path: 'mobile-view', component: MobileViewComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

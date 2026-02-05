@@ -27,6 +27,7 @@ import { PDFPreviewComponent } from './pages/pdf-preview/pdf-preview.component';
 import { VerificationComponent } from './pages/verification/verification.component';
 import { MobileViewComponent } from './pages/mobile-view/mobile-view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatTooltipModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
