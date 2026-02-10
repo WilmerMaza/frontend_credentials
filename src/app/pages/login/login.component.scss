@@ -3,6 +3,20 @@
   background: #eef0f3;
 }
 
+.institucional{
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.honor{
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #ffffff;
+}
+
 .topbar {
   background: #0c2e57;
   color: #fff;
@@ -10,10 +24,11 @@
   padding: 0;
   width: 620px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
+  border-radius: 8px 8px 0px 0px;
+  
 
   .topbar__inner {
-    width: min(750px, 25vw);
+    //width: min(750px, 25vw);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -27,19 +42,26 @@
   grid-template-columns: 120px 1fr;
   gap: 18px;
   align-items: center;
+  position: relative;
+  //border-bottom: 3px solid #e9d3b3;
 
   .brand__logo {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 999px;
-    padding: 8px;
+    width: 170px;
+    height: 230px;
+    //max-width: auto;
+    //object-fit: contain;
+    //background: #fff;
+    //border-radius: 999px;
+    //padding: 8px;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    right: 165px;
   }
 
   .brand__text {
     line-height: 1.15;
-
+    
     .brand__title {
       font-size: 22px;
       font-weight: 600;
@@ -56,7 +78,7 @@
       margin-top: 10px;
       font-size: 22px;
       font-style: italic;
-      font-family: "Georgia", serif;
+      //font-family: "Georgia", serif;
       opacity: 0.95;
     }
   }
@@ -67,7 +89,13 @@
   margin: 0 auto;
   padding: 36px 0 40px;
   display: grid;
-  justify-items: center;
+  //justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+    
+
   
 }
 
@@ -76,7 +104,14 @@
   border-radius: 14px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   background: #ffffff;
+  border-radius: 0px 0px 10px 10px;
+  padding: 65px;
 
+}
+
+.card-container1{
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px -4px rgba(0, 0, 0, 0.46);
 }
 
 .login-title {
@@ -85,6 +120,7 @@
   font-weight: 700;
   text-align: center;
   color: #0b1b33;
+
 }
 
 .login-subtitle {
@@ -134,6 +170,7 @@
   height: 48px;
   border-radius: 10px;
   font-size: 18px;
+  background-color: #163665;
 }
 
 .register {

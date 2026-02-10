@@ -4,21 +4,21 @@
     <!-- Body -->
     <div class="content">
         <!-- Header -->
-        <mat-toolbar class="topbar" role="banner">
+        <mat-toolbar class="topbar" role="banner" style="border-bottom: 3px solid #e9d3b3;">
             <div class="topbar__inner">
                 <div class="brand">
                     <img class="brand__logo" src="assets/LOGO_ENAP.png" alt="Escudo" />
                     <div class="brand__text">
-                        <div class="brand__title">ESCUELA NAVAL DE CADETES</div>
-                        <div class="brand__subtitle">ALMIRANTE PADILLA</div>
-                        <div class="brand__motto">Honor y Tradición</div>
+                        <div class="brand__title institucional">ESCUELA NAVAL DE CADETES</div>
+                        <div class="brand__subtitle institucional">ALMIRANTE PADILLA</div>
+                        <div class="brand__motto honor">Honor y Tradición</div>
                     </div>
                 </div>
             </div>
         </mat-toolbar>
 
         <mat-card class="login-card" appearance="outlined">
-            <mat-card-content>
+            <mat-card-content class="card-container1">
                 <h1 class="login-title">Inicio de Sesión</h1>
                 <p class="login-subtitle">Inicie sesión con su <b>identificación personal</b>.</p>
 
@@ -46,7 +46,7 @@
 
                     <a class="forgot" (click)="onForgot()">¿Olvidó su contraseña?</a>
 
-                    <button mat-flat-button color="primary" class="login-btn" type="submit" [disabled]="form.invalid">
+                    <button mat-flat-button class="login-btn" type="submit" [disabled]="form.invalid">
                         Iniciar Sesión
                     </button>
 
